@@ -39,7 +39,15 @@ namespace Case4StudentGradeManagement
                 List<Student> students = new List<Student>
                 {
                     new Student("Alice", "Computer Science", 3.8),
-                    new Student("Bob", "Engineering", 5.5),
+                    new Student("Bob", "Engineering", 4.2),         // Out of range
+                    new Student("Charlie", "Mathematics", 3.6),
+                    new Student("Diana", "Biology", 3.9),
+                    new Student("Ethan", "Physics", 5.0),           // Out of range
+                    new Student("Fiona", "Chemistry", 2.7),
+                    new Student("George", "History", 4.5),          // Out of range
+                    new Student("Hannah", "Art", 3.3),
+                    new Student("Ian", "Philosophy", 3.5),
+                    new Student("Julia", "Economics", 3.0),
                 };
                 listBox1.DataSource = students;
                 listBox1.DisplayMember = "Name";

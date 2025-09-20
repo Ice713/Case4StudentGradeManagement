@@ -34,7 +34,13 @@ namespace Case4StudentGradeManagement
                 if (value < 0 || value > 4.0)
                 {
                     gpa = 0;
-                    MessageBox.Show($"Invalid GPA for {Name}! Setting GPA to 0.0");
+                    MessageBox.Show(
+                        $"The GPA entered for student \"{Name}\" is invalid.\n\nIt will be set to 0.0 by default.",
+                        "Invalid GPA Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
                 }
                 else
                     gpa = value;
@@ -50,7 +56,14 @@ namespace Case4StudentGradeManagement
 
         public void Display()
         {
-            MessageBox.Show($"Student: {Name}\nCourse: {Course}\nGPA: {Gpa.ToString("F2")}");
+            MessageBox.Show(                
+                $"Name:   {Name}\n" +
+                $"Course: {Course}\n" +
+                $"GPA:    {Gpa:F2}",
+                "Student Details",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         public override string ToString()
