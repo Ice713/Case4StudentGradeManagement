@@ -12,6 +12,7 @@ namespace Case4StudentGradeManagement
 {
     public partial class Form1 : Form
     {
+        private bool isFormLoading = true;
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +20,8 @@ namespace Case4StudentGradeManagement
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isFormLoading) return;
+
             if (listBox1.SelectedIndex < 0)
                 return;
             else if (listBox1.SelectedItem is Student selectedStudent)
@@ -32,6 +35,7 @@ namespace Case4StudentGradeManagement
         {
             try
             {
+                isFormLoading = true;
                 List<Student> students = new List<Student>
                 {
                     new Student("Alice", "Computer Science", 3.8),
@@ -47,6 +51,10 @@ namespace Case4StudentGradeManagement
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
+            }
+            finally 
+            {
+                isFormLoading = false;
             }
             
         }
